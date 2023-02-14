@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+	  <GenerateDocumentationFile>true</GenerateDocumentationFile>
+	  <NoWarn>1591</NoWarn>
+  </PropertyGroup>
+	
+	<Target Name="InheritDoc" AfterTargets="PostBuildEvent" Condition="$(GenerateDocumentationFile)">
+		<Exec Command="InheritDoc -o" IgnoreExitCode="True" ContinueOnError="true" />
+	</Target>
+	
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="FluentValidation" Version="10.3.3" />
+    <PackageReference Include="MegaApiClient" Version="1.9.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.9" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.9" />
+    <PackageReference Include="System.Linq" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Announcements.Domain\Announcements.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
